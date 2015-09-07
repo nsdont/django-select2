@@ -407,7 +407,7 @@ class ModelChoiceFieldMixin(QuerysetChoiceMixin):
             'validators', 'localize',
             ])
         kargs['widget'] = kwargs.pop('widget', getattr(self, 'widget', None))
-        kargs['to_field_name'] = kwargs.pop('to_field_name', 'pk')
+        kargs['to_field_name'] = kwargs.pop('to_field_name', self.to_field_name or 'pk')
 
         # If it exists then probably it is set by HeavySelect2FieldBase.
         # We are not gonna use that anyway.
